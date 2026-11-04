@@ -1,0 +1,811 @@
+{
+  "ner_ncbi_test": {
+    "crf_strict": {
+      "precision": 0.8421,
+      "recall": 0.7667,
+      "f1": 0.8026,
+      "tp": 736,
+      "fp": 138,
+      "fn": 224
+    },
+    "crf_relaxed": {
+      "precision": 0.9522,
+      "recall": 0.8708,
+      "f1": 0.9097,
+      "tp": 836,
+      "fp": 42,
+      "fn": 124
+    },
+    "mesh_dictionary_baseline_strict": {
+      "precision": 0.6064,
+      "recall": 0.3531,
+      "f1": 0.4463,
+      "tp": 339,
+      "fp": 220,
+      "fn": 621
+    },
+    "recall_by_kind": {
+      "Modifier": 0.8371,
+      "SpecificDisease": 0.7586,
+      "DiseaseClass": 0.7107,
+      "CompositeMention": 0.4
+    }
+  },
+  "normalization_ncbi_test_gold_mentions": {
+    "mesh_only": {
+      "accuracy_on_evaluable": 0.5346,
+      "evaluable": 780,
+      "gold_id_outside_vocabulary": 85,
+      "omim_mentions": 95,
+      "omim_mentions_wrongly_linked_to_mesh": 60,
+      "by_method": {
+        "nil": {
+          "n": 226,
+          "accuracy": 0.0
+        },
+        "fuzzy": {
+          "n": 225,
+          "accuracy": 0.4489
+        },
+        "exact": {
+          "n": 322,
+          "accuracy": 0.9658
+        },
+        "normalized": {
+          "n": 7,
+          "accuracy": 0.7143
+        }
+      }
+    },
+    "mesh_plus_train_synonyms": {
+      "accuracy_on_evaluable": 0.8231,
+      "evaluable": 780,
+      "gold_id_outside_vocabulary": 85,
+      "omim_mentions": 95,
+      "omim_mentions_wrongly_linked_to_mesh": 64,
+      "by_method": {
+        "nil": {
+          "n": 62,
+          "accuracy": 0.0
+        },
+        "exact": {
+          "n": 586,
+          "accuracy": 0.9659
+        },
+        "fuzzy": {
+          "n": 118,
+          "accuracy": 0.5424
+        },
+        "normalized": {
+          "n": 14,
+          "accuracy": 0.8571
+        }
+      }
+    }
+  },
+  "assertion": {
+    "iid": {
+      "rules_only (ConText)": {
+        "assertion": {
+          "accuracy": 0.9997,
+          "n": 3692,
+          "macro_f1": 0.9992,
+          "per_class": {
+            "possible": {
+              "precision": 1.0,
+              "recall": 0.998,
+              "f1": 0.999,
+              "support": 645
+            },
+            "absent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1002
+            },
+            "present": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1728
+            },
+            "hypothetical": {
+              "precision": 0.997,
+              "recall": 1.0,
+              "f1": 0.998,
+              "support": 317
+            }
+          },
+          "confusions": {
+            "possible->hypothetical": 1
+          }
+        },
+        "temporality": {
+          "accuracy": 0.9902,
+          "n": 1933,
+          "macro_f1": 0.9835,
+          "per_class": {
+            "current": {
+              "precision": 0.988,
+              "recall": 1.0,
+              "f1": 0.994,
+              "support": 1573
+            },
+            "historical": {
+              "precision": 1.0,
+              "recall": 0.947,
+              "f1": 0.973,
+              "support": 360
+            }
+          },
+          "confusions": {
+            "historical->current": 19
+          }
+        },
+        "experiencer": {
+          "accuracy": 0.9816,
+          "n": 3692,
+          "macro_f1": 0.9685,
+          "per_class": {
+            "patient": {
+              "precision": 0.995,
+              "recall": 0.983,
+              "f1": 0.989,
+              "support": 3059
+            },
+            "family": {
+              "precision": 0.922,
+              "recall": 0.975,
+              "f1": 0.948,
+              "support": 633
+            }
+          },
+          "confusions": {
+            "patient->family": 52,
+            "family->patient": 16
+          }
+        }
+      },
+      "ml_text_only": {
+        "assertion": {
+          "accuracy": 1.0,
+          "n": 3692,
+          "macro_f1": 1.0,
+          "per_class": {
+            "possible": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 645
+            },
+            "absent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1002
+            },
+            "present": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1728
+            },
+            "hypothetical": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 317
+            }
+          },
+          "confusions": {}
+        },
+        "temporality": {
+          "accuracy": 1.0,
+          "n": 1933,
+          "macro_f1": 1.0,
+          "per_class": {
+            "current": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1573
+            },
+            "historical": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 360
+            }
+          },
+          "confusions": {}
+        },
+        "experiencer": {
+          "accuracy": 1.0,
+          "n": 3692,
+          "macro_f1": 1.0,
+          "per_class": {
+            "patient": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3059
+            },
+            "family": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 633
+            }
+          },
+          "confusions": {}
+        }
+      },
+      "hybrid (ML + rule features)": {
+        "assertion": {
+          "accuracy": 1.0,
+          "n": 3692,
+          "macro_f1": 1.0,
+          "per_class": {
+            "possible": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 645
+            },
+            "absent": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1002
+            },
+            "present": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1728
+            },
+            "hypothetical": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 317
+            }
+          },
+          "confusions": {}
+        },
+        "temporality": {
+          "accuracy": 1.0,
+          "n": 1933,
+          "macro_f1": 1.0,
+          "per_class": {
+            "current": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1573
+            },
+            "historical": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 360
+            }
+          },
+          "confusions": {}
+        },
+        "experiencer": {
+          "accuracy": 1.0,
+          "n": 3692,
+          "macro_f1": 1.0,
+          "per_class": {
+            "patient": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3059
+            },
+            "family": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 633
+            }
+          },
+          "confusions": {}
+        }
+      }
+    },
+    "shifted": {
+      "rules_only (ConText)": {
+        "assertion": {
+          "accuracy": 0.9271,
+          "n": 3908,
+          "macro_f1": 0.9313,
+          "per_class": {
+            "present": {
+              "precision": 0.866,
+              "recall": 1.0,
+              "f1": 0.928,
+              "support": 1835
+            },
+            "absent": {
+              "precision": 1.0,
+              "recall": 0.808,
+              "f1": 0.894,
+              "support": 1224
+            },
+            "possible": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 565
+            },
+            "hypothetical": {
+              "precision": 1.0,
+              "recall": 0.824,
+              "f1": 0.903,
+              "support": 284
+            }
+          },
+          "confusions": {
+            "absent->present": 235,
+            "hypothetical->present": 50
+          }
+        },
+        "temporality": {
+          "accuracy": 0.9216,
+          "n": 2015,
+          "macro_f1": 0.907,
+          "per_class": {
+            "current": {
+              "precision": 1.0,
+              "recall": 0.894,
+              "f1": 0.944,
+              "support": 1485
+            },
+            "historical": {
+              "precision": 0.77,
+              "recall": 1.0,
+              "f1": 0.87,
+              "support": 530
+            }
+          },
+          "confusions": {
+            "current->historical": 158
+          }
+        },
+        "experiencer": {
+          "accuracy": 0.9918,
+          "n": 3908,
+          "macro_f1": 0.981,
+          "per_class": {
+            "patient": {
+              "precision": 0.991,
+              "recall": 0.999,
+              "f1": 0.995,
+              "support": 3414
+            },
+            "family": {
+              "precision": 0.996,
+              "recall": 0.939,
+              "f1": 0.967,
+              "support": 494
+            }
+          },
+          "confusions": {
+            "family->patient": 30,
+            "patient->family": 2
+          }
+        }
+      },
+      "ml_text_only": {
+        "assertion": {
+          "accuracy": 0.6453,
+          "n": 3908,
+          "macro_f1": 0.4933,
+          "per_class": {
+            "present": {
+              "precision": 0.628,
+              "recall": 0.85,
+              "f1": 0.722,
+              "support": 1835
+            },
+            "absent": {
+              "precision": 0.778,
+              "recall": 0.575,
+              "f1": 0.661,
+              "support": 1224
+            },
+            "possible": {
+              "precision": 0.476,
+              "recall": 0.419,
+              "f1": 0.446,
+              "support": 565
+            },
+            "hypothetical": {
+              "precision": 1.0,
+              "recall": 0.077,
+              "f1": 0.144,
+              "support": 284
+            }
+          },
+          "confusions": {
+            "absent->present": 471,
+            "possible->present": 328,
+            "present->absent": 145,
+            "present->possible": 131,
+            "hypothetical->present": 125,
+            "hypothetical->possible": 81,
+            "hypothetical->absent": 56,
+            "absent->possible": 49
+          }
+        },
+        "temporality": {
+          "accuracy": 0.9067,
+          "n": 2015,
+          "macro_f1": 0.873,
+          "per_class": {
+            "current": {
+              "precision": 0.912,
+              "recall": 0.966,
+              "f1": 0.939,
+              "support": 1485
+            },
+            "historical": {
+              "precision": 0.887,
+              "recall": 0.74,
+              "f1": 0.807,
+              "support": 530
+            }
+          },
+          "confusions": {
+            "historical->current": 138,
+            "current->historical": 50
+          }
+        },
+        "experiencer": {
+          "accuracy": 0.9378,
+          "n": 3908,
+          "macro_f1": 0.82,
+          "per_class": {
+            "patient": {
+              "precision": 0.934,
+              "recall": 1.0,
+              "f1": 0.966,
+              "support": 3414
+            },
+            "family": {
+              "precision": 1.0,
+              "recall": 0.508,
+              "f1": 0.674,
+              "support": 494
+            }
+          },
+          "confusions": {
+            "family->patient": 243
+          }
+        }
+      },
+      "hybrid (ML + rule features)": {
+        "assertion": {
+          "accuracy": 0.9194,
+          "n": 3908,
+          "macro_f1": 0.908,
+          "per_class": {
+            "present": {
+              "precision": 0.866,
+              "recall": 1.0,
+              "f1": 0.928,
+              "support": 1835
+            },
+            "absent": {
+              "precision": 1.0,
+              "recall": 0.808,
+              "f1": 0.894,
+              "support": 1224
+            },
+            "possible": {
+              "precision": 0.95,
+              "recall": 1.0,
+              "f1": 0.974,
+              "support": 565
+            },
+            "hypothetical": {
+              "precision": 1.0,
+              "recall": 0.718,
+              "f1": 0.836,
+              "support": 284
+            }
+          },
+          "confusions": {
+            "absent->present": 235,
+            "hypothetical->present": 50,
+            "hypothetical->possible": 30
+          }
+        },
+        "temporality": {
+          "accuracy": 0.9216,
+          "n": 2015,
+          "macro_f1": 0.907,
+          "per_class": {
+            "current": {
+              "precision": 1.0,
+              "recall": 0.894,
+              "f1": 0.944,
+              "support": 1485
+            },
+            "historical": {
+              "precision": 0.77,
+              "recall": 1.0,
+              "f1": 0.87,
+              "support": 530
+            }
+          },
+          "confusions": {
+            "current->historical": 158
+          }
+        },
+        "experiencer": {
+          "accuracy": 0.9568,
+          "n": 3908,
+          "macro_f1": 0.885,
+          "per_class": {
+            "patient": {
+              "precision": 0.953,
+              "recall": 1.0,
+              "f1": 0.976,
+              "support": 3414
+            },
+            "family": {
+              "precision": 1.0,
+              "recall": 0.658,
+              "f1": 0.794,
+              "support": 494
+            }
+          },
+          "confusions": {
+            "family->patient": 169
+          }
+        }
+      }
+    }
+  },
+  "deid": {
+    "iid": {
+      "regex_only": {
+        "overall_recall_relaxed": 0.6686,
+        "overall_precision_relaxed": 1.0,
+        "char_level_recall": 0.6266,
+        "by_type_recall_relaxed": {
+          "AGE": 1.0,
+          "DATE": 1.0,
+          "EMAIL": 1.0,
+          "ID": 1.0,
+          "LOCATION": 0.0,
+          "NAME": 0.2577,
+          "PHONE": 1.0
+        },
+        "by_type_recall_strict_boundary": {
+          "AGE": 1.0,
+          "DATE": 1.0,
+          "EMAIL": 1.0,
+          "ID": 0.9794,
+          "LOCATION": 0.0,
+          "NAME": 0.2577,
+          "PHONE": 1.0
+        },
+        "support": {
+          "AGE": 46,
+          "DATE": 371,
+          "EMAIL": 46,
+          "ID": 340,
+          "LOCATION": 191,
+          "NAME": 520,
+          "PHONE": 227
+        },
+        "false_positive_spans": 0
+      },
+      "regex_plus_crf": {
+        "overall_recall_relaxed": 1.0,
+        "overall_precision_relaxed": 1.0,
+        "char_level_recall": 1.0,
+        "by_type_recall_relaxed": {
+          "AGE": 1.0,
+          "DATE": 1.0,
+          "EMAIL": 1.0,
+          "ID": 1.0,
+          "LOCATION": 1.0,
+          "NAME": 1.0,
+          "PHONE": 1.0
+        },
+        "by_type_recall_strict_boundary": {
+          "AGE": 1.0,
+          "DATE": 1.0,
+          "EMAIL": 1.0,
+          "ID": 0.9794,
+          "LOCATION": 1.0,
+          "NAME": 1.0,
+          "PHONE": 1.0
+        },
+        "support": {
+          "AGE": 46,
+          "DATE": 371,
+          "EMAIL": 46,
+          "ID": 340,
+          "LOCATION": 191,
+          "NAME": 520,
+          "PHONE": 227
+        },
+        "false_positive_spans": 0
+      },
+      "crf_plus_aggressive": {
+        "overall_recall_relaxed": 1.0,
+        "overall_precision_relaxed": 0.9737,
+        "char_level_recall": 1.0,
+        "by_type_recall_relaxed": {
+          "AGE": 1.0,
+          "DATE": 1.0,
+          "EMAIL": 1.0,
+          "ID": 1.0,
+          "LOCATION": 1.0,
+          "NAME": 1.0,
+          "PHONE": 1.0
+        },
+        "by_type_recall_strict_boundary": {
+          "AGE": 1.0,
+          "DATE": 1.0,
+          "EMAIL": 1.0,
+          "ID": 0.9794,
+          "LOCATION": 1.0,
+          "NAME": 1.0,
+          "PHONE": 1.0
+        },
+        "support": {
+          "AGE": 46,
+          "DATE": 371,
+          "EMAIL": 46,
+          "ID": 340,
+          "LOCATION": 191,
+          "NAME": 520,
+          "PHONE": 227
+        },
+        "false_positive_spans": 47
+      }
+    },
+    "shifted": {
+      "regex_only": {
+        "overall_recall_relaxed": 0.6429,
+        "overall_precision_relaxed": 1.0,
+        "char_level_recall": 0.63,
+        "by_type_recall_relaxed": {
+          "AGE": 1.0,
+          "DATE": 1.0,
+          "EMAIL": 1.0,
+          "ID": 1.0,
+          "LOCATION": 0.0,
+          "NAME": 0.2049,
+          "PHONE": 1.0
+        },
+        "by_type_recall_strict_boundary": {
+          "AGE": 1.0,
+          "DATE": 1.0,
+          "EMAIL": 1.0,
+          "ID": 1.0,
+          "LOCATION": 0.0,
+          "NAME": 0.1082,
+          "PHONE": 1.0
+        },
+        "support": {
+          "AGE": 79,
+          "DATE": 337,
+          "EMAIL": 51,
+          "ID": 360,
+          "LOCATION": 135,
+          "NAME": 610,
+          "PHONE": 164
+        },
+        "false_positive_spans": 0
+      },
+      "regex_plus_crf": {
+        "overall_recall_relaxed": 0.8836,
+        "overall_precision_relaxed": 1.0,
+        "char_level_recall": 0.9073,
+        "by_type_recall_relaxed": {
+          "AGE": 1.0,
+          "DATE": 1.0,
+          "EMAIL": 1.0,
+          "ID": 1.0,
+          "LOCATION": 0.5704,
+          "NAME": 0.7639,
+          "PHONE": 1.0
+        },
+        "by_type_recall_strict_boundary": {
+          "AGE": 1.0,
+          "DATE": 1.0,
+          "EMAIL": 1.0,
+          "ID": 1.0,
+          "LOCATION": 0.5704,
+          "NAME": 0.6672,
+          "PHONE": 1.0
+        },
+        "support": {
+          "AGE": 79,
+          "DATE": 337,
+          "EMAIL": 51,
+          "ID": 360,
+          "LOCATION": 135,
+          "NAME": 610,
+          "PHONE": 164
+        },
+        "false_positive_spans": 0
+      },
+      "crf_plus_aggressive": {
+        "overall_recall_relaxed": 0.9862,
+        "overall_precision_relaxed": 0.9772,
+        "char_level_recall": 0.9782,
+        "by_type_recall_relaxed": {
+          "AGE": 1.0,
+          "DATE": 1.0,
+          "EMAIL": 1.0,
+          "ID": 1.0,
+          "LOCATION": 0.9852,
+          "NAME": 0.9639,
+          "PHONE": 1.0
+        },
+        "by_type_recall_strict_boundary": {
+          "AGE": 1.0,
+          "DATE": 1.0,
+          "EMAIL": 1.0,
+          "ID": 1.0,
+          "LOCATION": 0.9852,
+          "NAME": 0.8,
+          "PHONE": 1.0
+        },
+        "support": {
+          "AGE": 79,
+          "DATE": 337,
+          "EMAIL": 51,
+          "ID": 360,
+          "LOCATION": 135,
+          "NAME": 610,
+          "PHONE": 164
+        },
+        "false_positive_spans": 40
+      }
+    }
+  },
+  "end_to_end_synthetic_shifted": {
+    "ner_strict_on_notes": {
+      "precision": 0.8314,
+      "recall": 0.6991,
+      "f1": 0.7595,
+      "tp": 2732,
+      "fp": 554,
+      "fn": 1176
+    },
+    "assertion_accuracy_on_matched_spans": {
+      "assertion": 0.9246,
+      "temporality": 0.929,
+      "experiencer": 0.9535,
+      "joint": 0.8236
+    },
+    "mesh_accuracy_on_matched_spans": 0.7749,
+    "n_gold_entities": 3908,
+    "phi_in_pipeline_aggressive_with_disease_protection": {
+      "recall_relaxed": 0.9862,
+      "false_positive_spans": 11,
+      "gold_spans": 1736
+    }
+  },
+  "meta": {
+    "n_synthetic_test_notes_per_set": 300,
+    "synthetic_entities": {
+      "iid": 3692,
+      "shifted": 3908
+    },
+    "synthetic_phi_spans": {
+      "iid": 1741,
+      "shifted": 1736
+    }
+  }
+}
